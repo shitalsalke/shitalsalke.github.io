@@ -94,7 +94,7 @@ if __name__ == "__main__":
         technologies=technologies,
         resume=resume,
         projects=projects,
-        blog=blog,
+        # blog=blog,
         categories=categories,
     )
 
