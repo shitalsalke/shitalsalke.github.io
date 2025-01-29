@@ -213,6 +213,28 @@ footer {
     color: #3498db
 }
 
+.social-icons {
+    margin-top: 20px; /* Space from Resume button */
+    text-align: center; /* Center align icons */
+}
+
+.social-icons a {
+    display: inline-block;
+    margin: 10px;
+    font-size: 32px; /* Increase icon size */
+    color: #a0cfee; /* Default icon color */
+    transition: color 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    color: #0077b5; /* LinkedIn blue color on hover */
+}
+
+.social-icons a i {
+    font-size: 40px; /* Adjust icon size */
+}
+
+
 .btn-rounded-white {
     display: inline-block;
     color: #fff;
@@ -565,7 +587,8 @@ footer {
 .project-info p {
     color: #74808a;
     margin: 0 0 15px 0;
-    font-size: 0.9em
+    font-size: 0.9em;
+    text-align: justify;
 }
 
 .no-image .project-info {
