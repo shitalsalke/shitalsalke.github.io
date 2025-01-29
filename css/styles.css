@@ -545,6 +545,22 @@ footer {
     padding: 0 0 0 15px
 }
 
+.education-block {
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    padding: 15px;
+    border: 1px solid #dcd9d9;
+    text-align: left;
+    position: relative;
+}
+
+.education-logo {
+    width: 70px;  /* Adjust size as needed */
+    height: auto;
+    float: right;
+    margin-left: 15px;
+}
+
 #projects {
     padding: 50px 15px;
     border-bottom: 1px solid #dcd9d9;
