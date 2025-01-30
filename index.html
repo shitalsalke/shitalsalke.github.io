@@ -48,8 +48,11 @@
 
     <div id="lead">
         <div id="lead-content">
-            <h1>Shital Arjun Salke</h1>
-            <h2>Software Engineer</h2>
+            <h1>Shital Arjun Salke</h1><br>
+            <h2 id="animated-text">Software Engineer</h2><br>
+            <!-- <h2>
+                <span id="animated-text"></span>
+            </h2> -->
             <a href="https://drive.google.com/file/d/1-A2b_jfZCLHaHeeqkdfDlSCzpHQG688d/view?usp=sharing" target="_blank" class="btn-rounded-white">Download Resume</a>
             <div class="social-icons">
                 <a href="https://github.com/shitalsalke" target="_blank">
@@ -107,7 +110,7 @@
         <h2 class="heading">Experience</h2>
         <div id="experience-timeline">
             <div data-date="January 2024 – December 2024">
-                <h3>Georgia Tech</h3>
+                <h3>Georgia Institute of Technology</h3>
                 <h4>Research Assistant</h4>
                 <ul>
                     <li>
@@ -378,6 +381,55 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/scripts.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const titles = [
+            "Software Engineer . . . ",
+            "UI Developer . . . ",
+            "AI/ML Enthusiast . . . ",
+            "Backend Developer . . . "
+        ];
+
+        let index = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const speed = 100; // Typing speed in ms
+        const eraseSpeed = 50; // Backspacing speed
+        const delayBetween = 1000; // Delay before switching
+        const animatedText = document.getElementById("animated-text");
+
+        // Set the initial min-width to prevent collapsing
+        animatedText.style.minWidth = `${Math.max(...titles.map(t => t.length))}ch`;
+
+        function typeEffect() {
+            let currentTitle = titles[index];
+
+            if (isDeleting) {
+                // Stop deleting when one character remains
+                if (charIndex > 1) {
+                    animatedText.textContent = currentTitle.substring(0, charIndex--);
+                } else {
+                    isDeleting = false;
+                    index = (index + 1) % titles.length;
+                    setTimeout(typeEffect, 500); // Small delay before typing next
+                    return;
+                }
+            } else {
+                animatedText.textContent = currentTitle.substring(0, charIndex++);
+            }
+
+            if (!isDeleting && charIndex === currentTitle.length) {
+                isDeleting = true;
+                setTimeout(typeEffect, delayBetween);
+            } else {
+                setTimeout(typeEffect, isDeleting ? eraseSpeed : speed);
+            }
+        }
+
+        typeEffect();
+    });
+    </script>
+    
 </body>
 
 </html>
